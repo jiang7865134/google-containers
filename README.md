@@ -24,14 +24,14 @@ gcr.io/google_containers/kubernetes-dashboard-amd64      v1.4.2
 ```
 images=(kube-proxy-amd64:v1.4.6 kube-discovery-amd64:1.0 kubedns-amd64:1.9 kube-scheduler-amd64:v1.4.6 kube-controller-manager-amd64:v1.4.6 kube-apiserver-amd64:v1.4.6 etcd-amd64:2.3.7 kube-dnsmasq-amd64:1.4 exechealthz-amd64:1.2 pause-amd64:3.0)
 for imageName in ${images[@]} ; do
-  docker pull  sailsxu/$imageName
-  docker tag  sailsxu/$imageName gcr.io/google_containers/$imageName
+  docker pull ist0ne/$imageName
+  docker tag ist0ne/$imageName gcr.io/google_containers/$imageName
 done
 
 images=(heapster:canary heapster_grafana:v3.1.1 heapster_influxdb:v0.7)
 for imageName in ${images[@]} ; do
-  docker pull  sailsxu/$imageName
-  docker tag  sailsxu/$imageName kubernetes/$imageName
+  docker pull ist0ne/$imageName
+  docker tag ist0ne/$imageName kubernetes/$imageName
 done
 ```
 
