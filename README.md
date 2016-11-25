@@ -4,15 +4,15 @@
 ##	kube 1.4需要的镜像:
 ```
 gcr.io/google_containers/kube-proxy-amd64                v1.4.6
-gcr.io/google_containers/kube-discovery-amd64            1.0
-gcr.io/google_containers/kubedns-amd64                   1.9
+gcr.io/google_containers/kube-discovery-amd64            v1.0
+gcr.io/google_containers/kubedns-amd64                   v1.9
 gcr.io/google_containers/kube-scheduler-amd64            v1.4.6
 gcr.io/google_containers/kube-controller-manager-amd64   v1.4.6
 gcr.io/google_containers/kube-apiserver-amd64            v1.4.6
-gcr.io/google_containers/etcd-amd64                      2.3.7
-gcr.io/google_containers/kube-dnsmasq-amd64              1.4
-gcr.io/google_containers/exechealthz-amd64               1.2
-gcr.io/google_containers/pause-amd64                     3.0
+gcr.io/google_containers/etcd-amd64                      v2.3.7
+gcr.io/google_containers/kube-dnsmasq-amd64              v1.4
+gcr.io/google_containers/exechealthz-amd64               v1.2
+gcr.io/google_containers/pause-amd64                     v3.0
 kubernetes/heapster                                      canary
 gcr.io/google_containers/kubernetes-dashboard-amd64      v1.4.2
 ```
@@ -22,7 +22,7 @@ gcr.io/google_containers/kubernetes-dashboard-amd64      v1.4.2
 
 ## 更改tag
 ```
-images=(kube-proxy-amd64:v1.4.6 kube-discovery-amd64:1.0 kubedns-amd64:1.9 kube-scheduler-amd64:v1.4.6 kube-controller-manager-amd64:v1.4.6 kube-apiserver-amd64:v1.4.6 etcd-amd64:2.3.7 kube-dnsmasq-amd64:1.4 exechealthz-amd64:1.2 pause-amd64:3.0)
+images=(kube-proxy-amd64:v1.4.6 kube-discovery-amd64:v1.0 kubedns-amd64:v1.9 kube-scheduler-amd64:v1.4.6 kube-controller-manager-amd64:v1.4.6 kube-apiserver-amd64:v1.4.6 etcd-amd64:v2.3.7 kube-dnsmasq-amd64:v1.4 exechealthz-amd64:v1.2 pause-amd64:v3.0)
 for imageName in ${images[@]} ; do
   docker pull ist0ne/$imageName
   docker tag ist0ne/$imageName gcr.io/google_containers/$imageName
