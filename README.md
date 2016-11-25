@@ -3,18 +3,18 @@
 
 ##	kube 1.4需要的镜像:
 ```
-gcr.io/google_containers/kube-proxy-amd64                v1.4.0
+gcr.io/google_containers/kube-proxy-amd64                v1.4.6
 gcr.io/google_containers/kube-discovery-amd64            1.0
-gcr.io/google_containers/kubedns-amd64                   1.7
-gcr.io/google_containers/kube-scheduler-amd64            v1.4.0
-gcr.io/google_containers/kube-controller-manager-amd64   v1.4.0
-gcr.io/google_containers/kube-apiserver-amd64            v1.4.0
-gcr.io/google_containers/etcd-amd64                      2.2.5
-gcr.io/google_containers/kube-dnsmasq-amd64              1.3
-gcr.io/google_containers/exechealthz-amd64               1.1
+gcr.io/google_containers/kubedns-amd64                   1.9
+gcr.io/google_containers/kube-scheduler-amd64            v1.4.6
+gcr.io/google_containers/kube-controller-manager-amd64   v1.4.6
+gcr.io/google_containers/kube-apiserver-amd64            v1.4.6
+gcr.io/google_containers/etcd-amd64                      2.3.7
+gcr.io/google_containers/kube-dnsmasq-amd64              1.4
+gcr.io/google_containers/exechealthz-amd64               1.2
 gcr.io/google_containers/pause-amd64                     3.0
 kubernetes/heapster                                      canary
-gcr.io/google_containers/kubernetes-dashboard-amd64      v1.4.0
+gcr.io/google_containers/kubernetes-dashboard-amd64      v1.4.2
 ```
 
 ## docker hub上设置
@@ -22,13 +22,13 @@ gcr.io/google_containers/kubernetes-dashboard-amd64      v1.4.0
 
 ## 更改tag
 ```
-images=(kube-proxy-amd64:v1.4.0 kube-discovery-amd64:1.0 kubedns-amd64:1.7 kube-scheduler-amd64:v1.4.0 kube-controller-manager-amd64:v1.4.0 kube-apiserver-amd64:v1.4.0 etcd-amd64:2.2.5 kube-dnsmasq-amd64:1.3 exechealthz-amd64:1.1 pause-amd64:3.0)
+images=(kube-proxy-amd64:v1.4.6 kube-discovery-amd64:1.0 kubedns-amd64:1.9 kube-scheduler-amd64:v1.4.6 kube-controller-manager-amd64:v1.4.6 kube-apiserver-amd64:v1.4.6 etcd-amd64:2.3.7 kube-dnsmasq-amd64:1.4 exechealthz-amd64:1.2 pause-amd64:3.0)
 for imageName in ${images[@]} ; do
   docker pull  sailsxu/$imageName
   docker tag  sailsxu/$imageName gcr.io/google_containers/$imageName
 done
 
-images=(heapster:canary heapster_grafana:v2.6.0 heapster_influxdb:v0.6)
+images=(heapster:canary heapster_grafana:v3.1.1 heapster_influxdb:v0.7)
 for imageName in ${images[@]} ; do
   docker pull  sailsxu/$imageName
   docker tag  sailsxu/$imageName kubernetes/$imageName
@@ -38,7 +38,7 @@ done
 
 ## 通过kubeadm安装
 ```
-kubeadm init --use-kubernetes-version v1.4.0
+kubeadm init --use-kubernetes-version v1.4.6
 ```
 ### 当通过kubeadm安装后，还需要安装网络
 由于 pod 可能运行在不同的机器上，所以为了能让 pod 互相通信，就需要安装 pod 网络。这里使用的方案就是 weave net:
