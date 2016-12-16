@@ -15,10 +15,7 @@ gcr.io/google_containers/dnsmasq-metrics-amd64           1.0
 gcr.io/google_containers/kube-dnsmasq-amd64              1.4
 gcr.io/google_containers/kube-discovery-amd64            1.0
 gcr.io/google_containers/exechealthz-amd64               1.2
-gcr.io/google_containers/kubedns-amd64                   1.7
-gcr.io/google_containers/kube-dnsmasq-amd64              1.3
 gcr.io/google_containers/pause-amd64                     3.0
-gcr.io/google_containers/etcd-amd64                      2.2.5
 ```
 
 ## docker hub上设置
